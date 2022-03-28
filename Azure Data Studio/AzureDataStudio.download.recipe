@@ -42,12 +42,25 @@
 			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.zip</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications</string>
+				<key>purge_destination</key>
+				<false/>
+			</dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%filename%/%NAME%.app</string>
+				<string>%destination_path%/%NAME%.app</string>
 				<key>strict_verification</key>
 				<true/>
 				<key>deep_verification</key>
