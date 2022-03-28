@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Packages the latest version of Google Chrome (Universal).</string>
     <key>Identifier</key>
-    <string>com.github.coppercorp.pkg.GoogleChromeUniversal</string>
+    <string>com.github.coppercorp.pkg.GoogleChrome</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
