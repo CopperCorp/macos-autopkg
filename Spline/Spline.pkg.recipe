@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current Apple Enterprise Connect installer, extracts version information and renames the installer package.</string>
+	<string>Packages the latest version of Spline for Intel (x86) devices</string>
 	<key>Identifier</key>
-	<string>com.github.Mac-Seven.pkg.Spline</string>
+	<string>com.github.coppercorp.pkg.Spline</string>
 	<key>Input</key>
 	<dict>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>com.github.Mac-Seven.download.Spline</string>
+	<string>com.github.coppercorp.download.Spline</string>
 	<key>Process</key>
 	<array>
 		<dict>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>This recipe downloads the latest version of Spline for Intel (x86) devices</string>
+    <string>Downloads the latest version of Spline for Intel (x86) devices</string>
     <key>Identifier</key>
     <string>com.github.coppercorp.download.Spline</string>
     <key>Input</key>
