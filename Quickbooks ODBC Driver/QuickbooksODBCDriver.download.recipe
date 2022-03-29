@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the current release version of Quickbooks ODBC Driver.</string>
+	<key>Identifier</key>
+    	<string>com.github.coppercorp.download.QuickbooksODBCDriver</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Quickbooks ODBC Driver</string>
+	</dict>
+	<key>Process</key>
+	<array>
+        <dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>Version: ([0-9]+.[0-9]+.[0-9]+)</string>
+				<key>url</key>
+				<string>https://www.cdata.com/drivers/quickbooks/download/odbc/#macos</string>
+                <key>result_output_var_name</key>
+                <string>version</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+        <dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>(https:\/\/s3.amazonaws.com\/.*.dmg)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+				<key>url</key>
+				<string>http://www.cdata.com/download/getfile.aspx?file=demo/RQDG-M/setup.dmg&amp;name=QuickBooks%20ODBC%20Driver%20for%20Mac</string>
+                <key>result_output_var_name</key>
+                <string>downloadurl</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%-%version%.dmg</string>
+				<key>url</key>
+				<string>%downloadurl%</string>
+			</dict>
+			<key>Processor</key>
+			<string>CURLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/%NAME%.app</string>
+				<key>strict_verification</key>
+				<true/>
+				<key>deep_verification</key>
+				<true/>
+				<key>requirement</key>
+				<string>(identifier "com.tradingview.tradingviewapp.desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "5ATN337F8Z")</string>
+			</dict>
+		</dict>
+    </array>
+</dict>
+</plist>
