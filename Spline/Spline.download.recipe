@@ -49,7 +49,7 @@
                 <key>archive_path</key>
                 <string>%pathname%</string>
                 <key>destination_path</key>
-                <string>%pathname%/%NAME%.app</string>
+                <string>%pathname%</string>
                 <key>purge_destination</key>
                 <true/>
             </dict>
