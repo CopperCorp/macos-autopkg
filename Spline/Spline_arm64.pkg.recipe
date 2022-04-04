@@ -3,29 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current Apple Enterprise Connect installer, extracts version information and renames the installer package.</string>
+	<string>Packages the latest version of Spline for Silicon (arm64) devices</string>
 	<key>Identifier</key>
-	<string>com.github.Mac-Seven.pkg.Spline_arm64</string>
+	<string>com.github.coppercorp.pkg.Spline_arm64</string>
 	<key>Input</key>
 	<dict>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>com.github.Mac-Seven.download.Spline_arm64</string>
+	<string>com.github.coppercorp.download.Spline_arm64</string>
 	<key>Process</key>
 	<array>
-        <dict>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-            <key>Arguments</key>
-            <dict>
-                <key>archive_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/unzip</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/Spline.app/Contents/Info.plist</string>
+			</dict>
+		</dict>
         <dict>
 			<key>Processor</key>
 			<string>PkgRootCreator</string>
