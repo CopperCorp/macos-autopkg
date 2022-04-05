@@ -38,7 +38,7 @@
                 <key>input_path</key>
                 <string>%pathname%/%NAME%.app</string>
                 <key>strict_verification</key>
-                <true/>
+                <false/>
                 <key>requirement</key>
                 <string>(identifier "com.brave.Browser" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */)</string>
             </dict>
