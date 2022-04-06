@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest Keeper Password Manager</string>
+    <key>Identifier</key>
+    <string>com.github.coppercorp.download.keeper</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Keeper Password Manager</string>
+        <key>URL</key>
+        <string>https://www.keepersecurity.com/desktop_electron/Darwin/KeeperSetup.dmg</string>
+    </dict>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%URL%</string>
+                <key>filename</key>
+                <string>KeeperSetup.dmg</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
