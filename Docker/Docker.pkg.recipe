@@ -13,6 +13,8 @@
         <key>TYPE</key>
         <string>amd64</string>
     </dict>
+	<key>ParentRecipe</key>
+	<string>com.github.coppercorp.download.docker</string>
     <key>Process</key>
     <array>
         <dict>
