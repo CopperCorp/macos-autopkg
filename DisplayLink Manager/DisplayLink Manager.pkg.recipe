@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Packages the latest version of the DisplayLink Manager</string>
+    <key>Identifier</key>
+    <string>com.github.coppercorp.pkg.DisplayLinkManager</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>DisplayLink Manager</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://www.displaylink.com/downloads</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>2.3</string>
+    <key>ParentRecipe</key>
+    <string>com.github.coppercorp.download.DisplayLinkManager</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.mlbz521.SharedProcessors/XarExtractSingleFile</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_patch</key>
+                <string>%pathname%</string>
+                <key>file_to_extract</key>
+                <string>Distribution</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.mlbz521.SharedProcessors/XPathParser</string>
+            <key>Arguments</key>
+            <dict>
+                <key>xml_file</key>
+                <string>%extracted_file%</string>
+                <key>xpath</key>
+                <string>.//bundle[@id="com.displaylink.DisplayLinkUserAgent"][@CFBundleShortVersionString]</string>
+                <key>attribute_one</key>
+                <string>CFBundleShortVersionString</string>
+                <key>return_variable_attribute_one</key>
+                <string>version</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%SOFTWARE_TITLE%-%version%.pkg</string>
+                <key>source_pkg</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.smithjw.processors/FriendlyPathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>fail_deleter_silently</key>
+                <true/>
+                <key>path_list</key>
+                <dict>
+                    <string>%RECIPE_CACHE_DIR%/extractedfile</string>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
