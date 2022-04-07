@@ -41,12 +41,8 @@
                         <string>Developer ID Certification Authority</string>
                         <string>Apple Root CA</string>
                     </array>
-                    <key>strict_verification</key>
-                    <true/>
-                    <key>deep_verification</key>
-                    <true/>
                     <key>input_path</key>
-                    <string>%pathname%/Cisco Webex Meetings.pkg</string>
+                    <string>%pathname%/Cisco_Webex_Meetings.pkg</string>
                 </dict>
                 <key>Processor</key>
                 <string>CodeSignatureVerifier</string>
