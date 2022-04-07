@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current package of ZXPInstaller</string>
+    <key>Identifier</key>
+    <string>com.github.coppercorp.download.ZXPInstaller</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>ZXPInstaller</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.5.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+            <key>Comment</key>
+            <string>Get the latest release package.</string>
+            <key>Arguments</key>
+            <dict>
+                <key>github_repo</key>
+                <string>elements-storage/ZXPInstaller</string>
+                <key>asset_regex</key>
+                <string>ZXPInstaller-.*\.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%-%version%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/%NAME%.app</string>
+                <key>strict_verification</key>
+                <true/>
+                <key>deep_verification</key>
+                <true/>
+                <key>requirement</key>
+                <string>identifier "com.electron.zxpinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = V4JSMC46SY</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
