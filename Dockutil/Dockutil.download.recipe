@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Download the current package of Desktoppr.</string>
     <key>Identifier</key>
-    <string>com.github.coppercorp.download.Desktoppr</string>
+    <string>com.github.coppercorp.download.Dockutil</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
