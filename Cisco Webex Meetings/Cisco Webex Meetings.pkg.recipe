@@ -23,7 +23,7 @@
                     <key>destination_path</key>
                     <string>%RECIPE_CACHE_DIR%/installer_unpack</string>
                     <key>flat_pkg_path</key>
-                    <string>%pathname%/Cisco Webex Meetings.pkg</string>
+                    <string>%pathname%/Cisco_Webex_Meetings.pkg</string>
                     <key>purge_destination</key>
                     <true />
                  </dict>
