@@ -15,8 +15,6 @@
         <key>SEARCH_URL</key>
         <string>products/displaylink-graphics/downloads/macos</string>
     </dict>
-    <key>MinimumVersion</key>
-    <string>2.3</string>
     <key>Process</key>
     <array>
         <dict>

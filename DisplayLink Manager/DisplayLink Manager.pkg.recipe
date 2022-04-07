@@ -13,8 +13,6 @@
         <key>DOWNLOAD_URL</key>
         <string>https://www.displaylink.com/downloads</string>
     </dict>
-    <key>MinimumVersion</key>
-    <string>2.3</string>
     <key>ParentRecipe</key>
     <string>com.github.coppercorp.download.DisplayLinkManager</string>
     <key>Process</key>
