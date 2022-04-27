@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
         <key>NAME</key>
-        <string>Screaming Frog SEO</string>
+        <string>Screaming Frog SEO Spider</string>
         <key>BUNDLEID</key>
         <string>uk.co.screamingfrog.seo.spider</string>
 	</dict>
