@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Download the current package of Desktoppr.</string>
+    <string>Download the current package of Dockutil.</string>
     <key>Identifier</key>
     <string>com.github.coppercorp.download.Dockutil</string>
     <key>Input</key>
